@@ -13,9 +13,9 @@ import javax.swing.UIManager;
  *
  * @author Mufasa
  */
-public class Principal extends javax.swing.JFrame {
+public class FrmPrincipal extends javax.swing.JFrame {
 
-    public Principal() {
+    public FrmPrincipal() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         System.setProperty("flatlaf.menuBarEmbedded", "false");
@@ -279,7 +279,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void Menu_VentasBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_VentasBarActionPerformed
         if (Validar_Ventas_Bar.getText() == "0") {
-            Ventas_Bar vb = new Ventas_Bar();
+            FrmVentas_Bar vb = new FrmVentas_Bar();
             vb.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "La ventana VENTAS BAR ya se encuentra abierta");
@@ -287,7 +287,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Menu_VentasBarActionPerformed
 
     private void Boton_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_CerrarSesionActionPerformed
-        Login lg = new Login();
+        FrmLogin lg = new FrmLogin();
 
         int respuesta = JOptionPane.showConfirmDialog(null, "Desea cerrar sesion?", "WARNING", JOptionPane.YES_NO_OPTION);
 
@@ -299,7 +299,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void Menu_VentasPorMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_VentasPorMayorActionPerformed
         if (Validar_Ventas_Por_Mayor.getText() == "0") {
-            Ventas_Por_Mayor vpm = new Ventas_Por_Mayor();
+            FrmVentas_Por_Mayor vpm = new FrmVentas_Por_Mayor();
             vpm.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "La ventana VENTAS POR MAYOR ya se encuentra abierta");
@@ -317,7 +317,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void Menu_Gestionar_ProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Gestionar_ProveedoresActionPerformed
         if (Validar_Gestionar_Proveedores.getText() == "0") {
-            Proveedores pv = new Proveedores();
+            FrmProveedores pv = new FrmProveedores();
             pv.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "La ventana GESTIONAR PROVEEDORES ya se encuentra abierta");
@@ -326,7 +326,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void Menu_Gestionar_ComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Gestionar_ComprasActionPerformed
         if (Validar_Gestionar_Compras.getText() == "0") {
-            Compras cp = new Compras();
+            FrmCompras cp = new FrmCompras();
             cp.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "La ventana GESTIONAR COMPRAS ya se encuentra abierta");
@@ -335,7 +335,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void Menu_Reporte_InventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Reporte_InventarioActionPerformed
         if (Validar_Inventario.getText() == "0") {
-            Inventario inv = new Inventario();
+            FrmInventario inv = new FrmInventario();
             inv.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "La ventana INVENTARIO ya se encuentra abierta");
@@ -365,7 +365,7 @@ public class Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new FrmPrincipal().setVisible(true);
             }
         });
     }

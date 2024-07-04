@@ -10,14 +10,14 @@ import javax.swing.JOptionPane;
  *
  * @author Mufasa
  */
-public class Inventario extends javax.swing.JFrame {
+public class FrmInventario extends javax.swing.JFrame {
 
     /**
      * Creates new form Inventario
      */
-    public Inventario() {
+    public FrmInventario() {
         initComponents();
-        Principal.Validar_Inventario.setText("1");
+        FrmPrincipal.Validar_Inventario.setText("1");
     }
 
     /**
@@ -165,7 +165,7 @@ public class Inventario extends javax.swing.JFrame {
 
         if (respuesta == JOptionPane.YES_OPTION) {
             this.dispose();
-            Principal.Validar_Inventario.setText("0");
+            FrmPrincipal.Validar_Inventario.setText("0");
         }
     }//GEN-LAST:event_formWindowClosing
 
@@ -186,20 +186,21 @@ public class Inventario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inventario().setVisible(true);
+                new FrmInventario().setVisible(true);
             }
         });
     }

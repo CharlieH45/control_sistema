@@ -12,14 +12,14 @@ import javax.swing.UIManager;
  *
  * @author Mufasa
  */
-public class Proveedores extends javax.swing.JFrame {
+public class FrmProveedores extends javax.swing.JFrame {
 
     /**
      * Creates new form Clientes
      */
-    public Proveedores() {
+    public FrmProveedores() {
         initComponents();
-        Principal.Validar_Gestionar_Proveedores.setText("1");
+        FrmPrincipal.Validar_Gestionar_Proveedores.setText("1");
     }
 
     /**
@@ -225,7 +225,7 @@ public class Proveedores extends javax.swing.JFrame {
 
         if (respuesta == JOptionPane.YES_OPTION) {
             this.dispose();
-            Principal.Validar_Gestionar_Proveedores.setText("0");
+            FrmPrincipal.Validar_Gestionar_Proveedores.setText("0");
         }
     }//GEN-LAST:event_formWindowClosing
 
@@ -248,7 +248,7 @@ public class Proveedores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Proveedores().setVisible(true);
+                new FrmProveedores().setVisible(true);
             }
         });
     }

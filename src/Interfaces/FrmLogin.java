@@ -16,12 +16,12 @@ import javax.swing.UIManager;
  *
  * @author Mufasa
  */
-public class Login extends javax.swing.JFrame {
+public class FrmLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public Login() {
+    public FrmLogin() {
         initComponents();
     }
     
@@ -35,7 +35,7 @@ public class Login extends javax.swing.JFrame {
             us = usDAO.log(username, clave);
             
             if(us.getUsername()!= null && us.getClave() != null){
-                Principal principal = new Principal();
+                FrmPrincipal principal = new FrmPrincipal();
                 JOptionPane.showMessageDialog(null, "Bienvenido: "+ us.getNombre_usuario(), "Acceso exitoso", JOptionPane.INFORMATION_MESSAGE);
                 principal.setVisible(true);
                 this.dispose();
@@ -193,7 +193,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new FrmLogin().setVisible(true);
             }
         });
     }
