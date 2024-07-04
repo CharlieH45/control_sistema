@@ -28,7 +28,7 @@ public class FrmClientes extends javax.swing.JFrame {
      */
     public FrmClientes() {
         initComponents();
-        Principal.Validar_Gestionar_Clientes.setText("1");
+        FrmPrincipal.Validar_Gestionar_Clientes.setText("1");
         ListarCliente();
     }
 
@@ -302,7 +302,7 @@ public class FrmClientes extends javax.swing.JFrame {
 
         if (respuesta == JOptionPane.YES_OPTION) {
             this.dispose();
-            Principal.Validar_Gestionar_Clientes.setText("0");
+            FrmPrincipal.Validar_Gestionar_Clientes.setText("0");
         }
     }//GEN-LAST:event_formWindowClosing
 
