@@ -28,6 +28,7 @@ public class FrmClientes extends javax.swing.JFrame {
      */
     public FrmClientes() {
         initComponents();
+        setLocationRelativeTo(null);
         FrmPrincipal.Validar_Gestionar_Clientes.setText("1");
         ListarCliente();
     }

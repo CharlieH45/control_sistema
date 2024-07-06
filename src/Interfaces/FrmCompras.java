@@ -20,6 +20,7 @@ public class FrmCompras extends javax.swing.JFrame {
      */
     public FrmCompras() {
         initComponents();
+        setLocationRelativeTo(null);
         operacion();
     }
 

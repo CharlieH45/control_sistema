@@ -20,6 +20,7 @@ public class FrmVentas_Por_Mayor extends javax.swing.JFrame {
      */
     public FrmVentas_Por_Mayor() {
         initComponents();
+        setLocationRelativeTo(null);
         operacion();
         FrmPrincipal.Validar_Ventas_Por_Mayor.setText("1");
     }

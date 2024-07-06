@@ -21,6 +21,7 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
      */
     public FrmVentas_Bar() {
         initComponents();
+        setLocationRelativeTo(null);
         operacion();
         FrmPrincipal.Validar_Ventas_Bar.setText("1");
     }

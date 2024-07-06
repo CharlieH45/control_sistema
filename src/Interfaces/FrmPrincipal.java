@@ -86,6 +86,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avatar.png"))); // NOI18N
         jLabel1.setText("Usuario:");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wallpaperflare.com_wallpaper.jpg"))); // NOI18N
@@ -169,9 +170,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
 
+        Menu_Ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/punto-de-venta.png"))); // NOI18N
         Menu_Ventas.setText("Ventas");
 
         Menu_VentasBar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_VentasBar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/barra-de-bar.png"))); // NOI18N
         Menu_VentasBar.setText("Ventas Bar");
         Menu_VentasBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +184,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Menu_Ventas.add(Menu_VentasBar);
 
         Menu_VentasPorMayor.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_VentasPorMayor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/botella-de-vino.png"))); // NOI18N
         Menu_VentasPorMayor.setText("Ventas Por Mayor");
         Menu_VentasPorMayor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,9 +195,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Menu_Ventas);
 
+        Menu_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/apreton-de-manos.png"))); // NOI18N
         Menu_Clientes.setText("Clientes");
 
         Menu_Gestionar_Clientes.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Gestionar_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gestion-de-la-relacion-con-el-cliente.png"))); // NOI18N
         Menu_Gestionar_Clientes.setText("Gestionar Clientes");
         Menu_Gestionar_Clientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,9 +210,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Menu_Clientes);
 
+        Menu_Proveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/proveedores.png"))); // NOI18N
         Menu_Proveedores.setText("Proveedores");
 
         Menu_Gestionar_Proveedores.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Gestionar_Proveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cadena-de-suministro.png"))); // NOI18N
         Menu_Gestionar_Proveedores.setText("Gestionar Proveedores");
         Menu_Gestionar_Proveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,9 +225,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Menu_Proveedores);
 
+        Menu_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/metodo-de-pago.png"))); // NOI18N
         Menu_Compras.setText("Compras");
 
         Menu_Gestionar_Compras.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Gestionar_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pedido.png"))); // NOI18N
         Menu_Gestionar_Compras.setText("Gestionar Compras");
         Menu_Gestionar_Compras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,9 +240,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Menu_Compras);
 
+        Menu_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/espiritu2.png"))); // NOI18N
         Menu_Productos.setText("Productos");
 
         Menu_Gestionar_Productos.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Gestionar_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/espiritu2.png"))); // NOI18N
         Menu_Gestionar_Productos.setText("Gestionar Productos");
         Menu_Gestionar_Productos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,9 +255,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Menu_Productos);
 
+        Menu_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
         Menu_Inventario.setText("Reportes");
 
         Menu_Reporte_Inventario.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Reporte_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
         Menu_Reporte_Inventario.setText("Inventario");
         Menu_Reporte_Inventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,10 +269,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Menu_Inventario.add(Menu_Reporte_Inventario);
 
         Menu_Reporte_Ventas_Bar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Reporte_Ventas_Bar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
         Menu_Reporte_Ventas_Bar.setText("Ventas Bar");
         Menu_Inventario.add(Menu_Reporte_Ventas_Bar);
 
         Menu_Reporte_Ventar_Por_Mayor.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Reporte_Ventar_Por_Mayor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
         Menu_Reporte_Ventar_Por_Mayor.setText("Ventas Por Mayor");
         Menu_Inventario.add(Menu_Reporte_Ventar_Por_Mayor);
 
@@ -343,7 +359,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_Menu_Reporte_InventarioActionPerformed
 
     private void Menu_Gestionar_ProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Gestionar_ProductosActionPerformed
-        // TODO add your handling code here:
+        if (Validar_Gestionar_Productos.getText() == "0") {
+            FrmProductos prod = new FrmProductos();
+            prod.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "La ventana PRODUCTOS ya se encuentra abierta");
+        }
     }//GEN-LAST:event_Menu_Gestionar_ProductosActionPerformed
 
     /**
@@ -386,7 +407,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu Menu_Ventas;
     private javax.swing.JMenuItem Menu_VentasBar;
     private javax.swing.JMenuItem Menu_VentasPorMayor;
-    private javax.swing.JLabel Nombre_Usuario;
+    public static javax.swing.JLabel Nombre_Usuario;
     public static javax.swing.JLabel Validar_Gestionar_Categorias;
     public static javax.swing.JLabel Validar_Gestionar_Clientes;
     public static javax.swing.JLabel Validar_Gestionar_Compras;

@@ -23,6 +23,7 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public void validar(){
@@ -37,6 +38,7 @@ public class FrmLogin extends javax.swing.JFrame {
             if(us.getUsername()!= null && us.getClave() != null){
                 FrmPrincipal principal = new FrmPrincipal();
                 JOptionPane.showMessageDialog(null, "Bienvenido: "+ us.getNombre_usuario(), "Acceso exitoso", JOptionPane.INFORMATION_MESSAGE);
+                FrmPrincipal.Nombre_Usuario.setText(us.getNombre_usuario());
                 principal.setVisible(true);
                 this.dispose();
             }else{
@@ -116,11 +118,13 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel1.setText("Iniciar Sesión");
 
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avatar.png"))); // NOI18N
         jLabel2.setText("Usuario:");
 
         txtUsername.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/candado.png"))); // NOI18N
         jLabel3.setText("Contraseña:");
 
         txtClave.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
@@ -162,7 +166,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
