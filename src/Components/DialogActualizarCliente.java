@@ -6,6 +6,7 @@ package Components;
 
 import Interfaces.FrmClientes;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
@@ -46,6 +47,11 @@ public class DialogActualizarCliente extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -77,7 +83,9 @@ public class DialogActualizarCliente extends javax.swing.JDialog {
 
         jTextField5.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(249, 168, 37));
         jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Actualizar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -163,6 +171,15 @@ public class DialogActualizarCliente extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+                int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea cerrar esta ventana?", "WARNING", JOptionPane.YES_NO_OPTION);
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            this.dispose();
+            FrmClientes.Validar_ActualizarCliente.setText("0");
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

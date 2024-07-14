@@ -44,12 +44,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Validar_Gestionar_Productos = new javax.swing.JLabel();
         Validar_Gestionar_Categorias = new javax.swing.JLabel();
         Validar_Inventario = new javax.swing.JLabel();
+        idUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu_Ventas = new javax.swing.JMenu();
         Menu_VentasBar = new javax.swing.JMenuItem();
         Menu_VentasPorMayor = new javax.swing.JMenuItem();
         Menu_Clientes = new javax.swing.JMenu();
         Menu_Gestionar_Clientes = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         Menu_Proveedores = new javax.swing.JMenu();
         Menu_Gestionar_Proveedores = new javax.swing.JMenuItem();
         Menu_Compras = new javax.swing.JMenu();
@@ -60,6 +62,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Menu_Reporte_Inventario = new javax.swing.JMenuItem();
         Menu_Reporte_Ventas_Bar = new javax.swing.JMenuItem();
         Menu_Reporte_Ventar_Por_Mayor = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Panel Principal");
@@ -76,7 +81,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(1366, 729));
         jPanel2.setPreferredSize(new java.awt.Dimension(1366, 729));
 
+        Boton_CerrarSesion.setBackground(new java.awt.Color(229, 57, 53));
         Boton_CerrarSesion.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Boton_CerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         Boton_CerrarSesion.setText("Cerrar Sesion");
         Boton_CerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Boton_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +117,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         Validar_Inventario.setText("0");
 
+        idUsuario.setText("0");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -124,23 +133,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Nombre_Usuario)))
-                .addGap(61, 61, 61)
-                .addComponent(Validar_Ventas_Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Validar_Ventas_Por_Mayor, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Validar_Gestionar_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Validar_Gestionar_Proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Validar_Gestionar_Compras, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Validar_Gestionar_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Validar_Gestionar_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Validar_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1008, Short.MAX_VALUE)
+                        .addComponent(Validar_Ventas_Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Validar_Ventas_Por_Mayor, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Validar_Gestionar_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Validar_Gestionar_Proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Validar_Gestionar_Compras, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Validar_Gestionar_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Validar_Gestionar_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Validar_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(idUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +166,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(Nombre_Usuario))
+                    .addComponent(Nombre_Usuario)
+                    .addComponent(idUsuario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,6 +223,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         Menu_Clientes.add(Menu_Gestionar_Clientes);
+
+        jMenuItem1.setText("Historial");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        Menu_Clientes.add(jMenuItem1);
 
         jMenuBar1.add(Menu_Clientes);
 
@@ -279,6 +303,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Menu_Inventario.add(Menu_Reporte_Ventar_Por_Mayor);
 
         jMenuBar1.add(Menu_Inventario);
+
+        jMenu1.setText("Gestion");
+
+        jMenuItem2.setText("Usuarios");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Datos Negocio");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -367,6 +401,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Menu_Gestionar_ProductosActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FrmHistorialCliente hc = new FrmHistorialCliente();
+        hc.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -416,9 +455,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public static javax.swing.JLabel Validar_Inventario;
     public static javax.swing.JLabel Validar_Ventas_Bar;
     public static javax.swing.JLabel Validar_Ventas_Por_Mayor;
+    public static javax.swing.JLabel idUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables

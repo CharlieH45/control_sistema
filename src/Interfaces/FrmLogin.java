@@ -39,6 +39,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 FrmPrincipal principal = new FrmPrincipal();
                 JOptionPane.showMessageDialog(null, "Bienvenido: "+ us.getNombre_usuario(), "Acceso exitoso", JOptionPane.INFORMATION_MESSAGE);
                 FrmPrincipal.Nombre_Usuario.setText(us.getNombre_usuario());
+                FrmPrincipal.idUsuario.setText(Integer.toString(us.getIdusuario()));
                 principal.setVisible(true);
                 this.dispose();
             }else{
@@ -77,13 +78,13 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(76, 175, 80));
 
-        jLabel4.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("INVENTARIO Y VENTAS");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
-        jLabel5.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("SISTEMA");
@@ -114,21 +115,22 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel1.setText("Iniciar Sesión");
 
-        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avatar.png"))); // NOI18N
         jLabel2.setText("Usuario:");
 
         txtUsername.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/candado.png"))); // NOI18N
         jLabel3.setText("Contraseña:");
 
         txtClave.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
 
+        btnLogin.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
         btnLogin.setText("Ingresar");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

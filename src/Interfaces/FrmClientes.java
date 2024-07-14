@@ -28,6 +28,8 @@ public class FrmClientes extends javax.swing.JFrame {
      */
     public FrmClientes() {
         initComponents();
+        txtIdCliente.setVisible(false);
+        Validar_ActualizarCliente.setVisible(false);
         setLocationRelativeTo(null);
         FrmPrincipal.Validar_Gestionar_Clientes.setText("1");
         ListarCliente();
@@ -40,17 +42,30 @@ public class FrmClientes extends javax.swing.JFrame {
         }
     }
 
+    public void LimpiarCampos() {
+        txtIdCliente.setText("");
+        txtNombreCliente.setText("");
+        txtDocumentoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCorreoCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtTelefonoCliente2.setText("");
+    }
+
     public void GuardarCliente() {
         Clientes cl = new Clientes();
         ClientesDAO clDao = new ClientesDAO();
 
-        if (!"".equals(txtNombreCliente.getText()) || !"".equals(txtDocumentoCliente.getText()) || !"".equals(txtDireccionCliente.getText()) || !"".equals(txtCorreoCliente.getText()) || !"".equals(txtTelefonoCliente.getText())) {
+        if (!"".equals(txtNombreCliente.getText()) || !"".equals(txtDocumentoCliente.getText()) || !"".equals(txtDireccionCliente.getText()) || !"".equals(txtCorreoCliente.getText()) || !"".equals(txtTelefonoCliente.getText()) || !"".equals(txtTelefonoCliente2.getText())) {
             cl.setNombre_cliente(txtNombreCliente.getText());
             cl.setDocumento_cliente(Long.parseLong(txtDocumentoCliente.getText()));
             cl.setDireccion_cliente(txtDireccionCliente.getText());
             cl.setCorreo_cliente(txtCorreoCliente.getText());
             cl.setTelefono_cliente(Long.parseLong(txtTelefonoCliente.getText()));
+            cl.setTelefono2_cliente(Long.parseLong(txtTelefonoCliente2.getText()));
+            cl.setUsuario(FrmPrincipal.idUsuario.getText());
             clDao.RegistrarCliente(cl);
+            clDao.RegistrarHistorialCliente(cl);
 
             JOptionPane.showMessageDialog(null, "El cliente ha sido registrado con exito", "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -61,10 +76,12 @@ public class FrmClientes extends javax.swing.JFrame {
     public void ListarCliente() {
         Clientes cl = new Clientes();
         ClientesDAO clDao = new ClientesDAO();
-
-        List<Clientes> ListarCl = clDao.ListarClientes();
+        String usario = FrmPrincipal.Nombre_Usuario.getText();
+        clDao.ListarClientes(usario);
+        
+        List<Clientes> ListarCl = clDao.ListarClientes(usario);
         modelo = (DefaultTableModel) tbClientes.getModel();
-        Object[] ob = new Object[6];
+        Object[] ob = new Object[7];
 
         for (int i = 0; i < ListarCl.size(); i++) {
             ob[0] = ListarCl.get(i).getIdclientes();
@@ -73,9 +90,25 @@ public class FrmClientes extends javax.swing.JFrame {
             ob[3] = ListarCl.get(i).getDireccion_cliente();
             ob[4] = ListarCl.get(i).getCorreo_cliente();
             ob[5] = ListarCl.get(i).getTelefono_cliente();
+            ob[6] = ListarCl.get(i).getTelefono2_cliente();
             modelo.addRow(ob);
         }
         tbClientes.setModel(modelo);
+    }
+
+    public void EliminarCliente() {
+        ClientesDAO clDao = new ClientesDAO();
+        if (!"".equals(txtIdCliente.getText())) {
+            int respuesta = JOptionPane.showConfirmDialog(null, "Desea eliminar este usuario?", "Eliminando Cliente", JOptionPane.YES_NO_OPTION);
+
+            if (respuesta == JOptionPane.YES_OPTION) {
+                int id = Integer.parseInt(txtIdCliente.getText());
+                clDao.EliminarCliente(id);
+                LimpiarTabla();
+                ListarCliente();
+                LimpiarCampos();
+            }
+        }
     }
 
     /**
@@ -100,12 +133,14 @@ public class FrmClientes extends javax.swing.JFrame {
         txtTelefonoCliente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnRegistrarCliente = new javax.swing.JButton();
-        txtTelefonoCliente1 = new javax.swing.JTextField();
+        txtTelefonoCliente2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbClientes = new javax.swing.JTable();
+        btnEliminarCliente = new javax.swing.JButton();
         txtIdCliente = new javax.swing.JTextField();
         Validar_ActualizarCliente = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbClientes = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -121,32 +156,34 @@ public class FrmClientes extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Poppins SemiBold", 0, 12))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
         jLabel1.setText("Nombre:");
 
         txtNombreCliente.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
         txtDocumentoCliente.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
         jLabel2.setText("Documento/RUC:");
 
         txtDireccionCliente.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
         jLabel3.setText("Telefono:");
 
-        jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
         jLabel4.setText("Correo:");
 
         txtCorreoCliente.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
         txtTelefonoCliente.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
         jLabel5.setText("Dirección:");
 
+        btnRegistrarCliente.setBackground(new java.awt.Color(56, 142, 60));
         btnRegistrarCliente.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        btnRegistrarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarCliente.setText("Registrar");
         btnRegistrarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -155,10 +192,25 @@ public class FrmClientes extends javax.swing.JFrame {
             }
         });
 
-        txtTelefonoCliente1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        txtTelefonoCliente2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
         jLabel6.setText("Telefono Adicional:");
+
+        btnEliminarCliente.setBackground(new java.awt.Color(211, 47, 47));
+        btnEliminarCliente.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        btnEliminarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarCliente.setText("Eliminar");
+        btnEliminarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarClienteActionPerformed(evt);
+            }
+        });
+
+        txtIdCliente.setEnabled(false);
+
+        Validar_ActualizarCliente.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -166,32 +218,36 @@ public class FrmClientes extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtCorreoCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombreCliente)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Validar_ActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtCorreoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtNombreCliente, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(txtDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txtDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(txtDireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(txtTelefonoCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(jLabel5)
+                            .addComponent(txtDireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(txtTelefonoCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -220,9 +276,13 @@ public class FrmClientes extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefonoCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTelefonoCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Validar_ActualizarCliente))
                 .addContainerGap())
         );
 
@@ -232,15 +292,20 @@ public class FrmClientes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "NOMBRE", "DOCUMENTO/RUC", "DIRECCION", "CORREO", "TELEFONO"
+                "ID", "NOMBRE", "DOCUMENTO/RUC", "DIRECCION", "CORREO", "TELEFONO", "TELEFONO ADI"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tbClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbClientesMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tbClientes);
@@ -257,9 +322,12 @@ public class FrmClientes extends javax.swing.JFrame {
             tbClientes.getColumnModel().getColumn(4).setPreferredWidth(100);
             tbClientes.getColumnModel().getColumn(5).setResizable(false);
             tbClientes.getColumnModel().getColumn(5).setPreferredWidth(50);
+            tbClientes.getColumnModel().getColumn(6).setResizable(false);
+            tbClientes.getColumnModel().getColumn(6).setPreferredWidth(50);
         }
 
-        Validar_ActualizarCliente.setText("0");
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/apreton-de-manos_1.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -268,26 +336,22 @@ public class FrmClientes extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1068, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1068, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Validar_ActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(Validar_ActualizarCliente)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -309,9 +373,35 @@ public class FrmClientes extends javax.swing.JFrame {
 
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
         GuardarCliente();
-        ListarCliente();
         LimpiarTabla();
+        ListarCliente();
+        LimpiarCampos();
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
+
+    private void tbClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClientesMouseClicked
+        if (Validar_ActualizarCliente.getText().equals("0")) {
+            if (evt.getClickCount() == 2) {
+                int respuesta = JOptionPane.showConfirmDialog(rootPane, "Desea editar al usuario " + tbClientes.getSelectedRow(), "Actualizar", JOptionPane.YES_NO_OPTION);
+
+                if (respuesta == JOptionPane.YES_OPTION) {
+                    DialogActualizarCliente actClient = new DialogActualizarCliente();
+                    actClient.setVisible(true);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "La ventana para actualizar este cliente ya esta abierta");
+        }
+
+        if (evt.getClickCount() == 1) {
+            int fila = tbClientes.rowAtPoint(evt.getPoint());
+            txtIdCliente.setText(tbClientes.getValueAt(fila, 0).toString());
+        }
+
+    }//GEN-LAST:event_tbClientesMouseClicked
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+        EliminarCliente();
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,6 +429,7 @@ public class FrmClientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel Validar_ActualizarCliente;
+    private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -346,6 +437,7 @@ public class FrmClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -356,6 +448,6 @@ public class FrmClientes extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdCliente;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtTelefonoCliente;
-    private javax.swing.JTextField txtTelefonoCliente1;
+    private javax.swing.JTextField txtTelefonoCliente2;
     // End of variables declaration//GEN-END:variables
 }
