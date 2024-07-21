@@ -1,92 +1,93 @@
 package Models;
 
 public class Clientes {
-    private int idclientes;
-    private String nombre_cliente;
-    private long documento_cliente;
-    private String direccion_cliente;
-    private String correo_cliente;
-    private long telefono_cliente;
-    private long telefono2_cliente;
-    private String usuario;
+    private long idclientes;
+    private String nombre;
+    private long documento;
+    private String direccion;
+    private String correo;
+    private long telefono;
+    private long telefono2;
+    private String trabajador;
 
     public Clientes() {
     }
 
-    public Clientes(int idclientes, String nombre_cliente, long documento_cliente, String direccion_cliente, String correo_cliente, long telefono_cliente, long telefono2_cliente, String usuario) {
+    public Clientes(long idclientes, String nombre, long documento, String direccion, String correo, long telefono, long telefono2, String trabajador) {
         this.idclientes = idclientes;
-        this.nombre_cliente = nombre_cliente;
-        this.documento_cliente = documento_cliente;
-        this.direccion_cliente = direccion_cliente;
-        this.correo_cliente = correo_cliente;
-        this.telefono_cliente = telefono_cliente;
-        this.telefono2_cliente = telefono2_cliente;
-        this.usuario = usuario;
+        this.nombre = nombre;
+        this.documento = documento;
+        this.direccion = direccion;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.telefono2 = telefono2;
+        this.trabajador = trabajador;
     }
 
-    public int getIdclientes() {
+    public long getIdclientes() {
         return idclientes;
     }
 
-    public void setIdclientes(int idclientes) {
+    public void setIdclientes(long idclientes) {
         this.idclientes = idclientes;
     }
 
-    public String getNombre_cliente() {
-        return nombre_cliente;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombre_cliente(String nombre_cliente) {
-        this.nombre_cliente = nombre_cliente;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public long getDocumento_cliente() {
-        return documento_cliente;
+    public long getDocumento() {
+        return documento;
     }
 
-    public void setDocumento_cliente(long documento_cliente) {
-        this.documento_cliente = documento_cliente;
+    public void setDocumento(long documento) {
+        this.documento = documento;
     }
 
-    public String getDireccion_cliente() {
-        return direccion_cliente;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDireccion_cliente(String direccion_cliente) {
-        this.direccion_cliente = direccion_cliente;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public String getCorreo_cliente() {
-        return correo_cliente;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCorreo_cliente(String correo_cliente) {
-        this.correo_cliente = correo_cliente;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public long getTelefono_cliente() {
-        return telefono_cliente;
+    public long getTelefono() {
+        return telefono;
     }
 
-    public void setTelefono_cliente(long telefono_cliente) {
-        this.telefono_cliente = telefono_cliente;
+    public void setTelefono(long telefono) {
+        this.telefono = telefono;
     }
 
-    public long getTelefono2_cliente() {
-        return telefono2_cliente;
+    public long getTelefono2() {
+        return telefono2;
     }
 
-    public void setTelefono2_cliente(long telefono2_cliente) {
-        this.telefono2_cliente = telefono2_cliente;
+    public void setTelefono2(long telefono2) {
+        this.telefono2 = telefono2;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getTrabajador() {
+        return trabajador;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setTrabajador(String trabajador) {
+        this.trabajador = trabajador;
     }
-    
+
+
     
 }

@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import Interfaces.FrmPrincipal;
 import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -24,6 +25,14 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         operacion();
         FrmPrincipal.Validar_Ventas_Bar.setText("1");
+        ModeloSpinner();
+    }
+    
+    private void ModeloSpinner(){
+        SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
+        modeloSpinner.setMaximum(99);
+        modeloSpinner.setMinimum(0);
+        TextCantidad.setModel(modeloSpinner);
     }
 
     private void operacion() {
@@ -60,7 +69,7 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        TextCantidad = new javax.swing.JSpinner();
         jTextField7 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -157,6 +166,11 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
         jButton2.setText("Buscar");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextField6.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -171,7 +185,7 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         jLabel7.setText("Cantidad:");
 
-        jSpinner1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        TextCantidad.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
 
         jTextField7.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
 
@@ -217,7 +231,7 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addGap(100, 100, 100))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jSpinner1)
+                                        .addComponent(TextCantidad)
                                         .addGap(18, 18, 18)))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,7 +266,7 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(TextCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,6 +373,11 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+     
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -384,6 +403,7 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner TextCantidad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -401,7 +421,6 @@ public class FrmVentas_Bar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

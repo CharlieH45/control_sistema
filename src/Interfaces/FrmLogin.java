@@ -4,8 +4,8 @@
  */
 package Interfaces;
 
-import DAOs.UsuariosDAO;
-import Models.Usuarios;
+import DAOs.TrabajadoresDAO;
+import Models.Trabajadores;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.Panel;
@@ -31,17 +31,28 @@ public class FrmLogin extends javax.swing.JFrame {
         String clave = String.valueOf(txtClave.getPassword());
         
         if (!"".equals(username) || !"".equals(clave)) {
-            Usuarios us = new Usuarios();
-            UsuariosDAO usDAO = new UsuariosDAO();
-            us = usDAO.log(username, clave);
+            Trabajadores trab = new Trabajadores();
+            TrabajadoresDAO trabDAO = new TrabajadoresDAO();
+            trab = trabDAO.log(username, clave);
             
-            if(us.getUsername()!= null && us.getClave() != null){
+            if(trab.getUsuario()!= null && trab.getClave() != null){
                 FrmPrincipal principal = new FrmPrincipal();
-                JOptionPane.showMessageDialog(null, "Bienvenido: "+ us.getNombre_usuario(), "Acceso exitoso", JOptionPane.INFORMATION_MESSAGE);
-                FrmPrincipal.Nombre_Usuario.setText(us.getNombre_usuario());
-                FrmPrincipal.idUsuario.setText(Integer.toString(us.getIdusuario()));
+                JOptionPane.showMessageDialog(null, "Bienvenido: "+ trab.getNombre(), "Acceso exitoso", JOptionPane.INFORMATION_MESSAGE);
+                FrmPrincipal.Nombre_Usuario.setText(trab.getNombre());
+                FrmPrincipal.idUsuario.setText(Long.toString(trab.getIdtrabajadores()));
+                FrmPrincipal.Rol.setText(trab.getRol());
+                FrmPrincipal.Username.setText(trab.getUsuario());
                 principal.setVisible(true);
                 this.dispose();
+                
+                if(trab.getRol().equals("Empleado")){
+                    FrmPrincipal.Menu_Gestion.setVisible(false);
+                    FrmPrincipal.Menu_Proveedores.setVisible(false);
+                    FrmPrincipal.Menu_Compras.setVisible(false);
+                    FrmPrincipal.Menu_Reporte_Ventas_Bar.setVisible(false);
+                    FrmPrincipal.Menu_Reporte_Ventar_Por_Mayor.setVisible(false);
+                    
+                }
             }else{
                 JOptionPane.showMessageDialog(null, "El USUARIO y/o CONTRASEÑA no son correctos", "Error de autenticación",JOptionPane.ERROR_MESSAGE);
             }

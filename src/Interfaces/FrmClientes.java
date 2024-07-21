@@ -57,13 +57,13 @@ public class FrmClientes extends javax.swing.JFrame {
         ClientesDAO clDao = new ClientesDAO();
 
         if (!"".equals(txtNombreCliente.getText()) || !"".equals(txtDocumentoCliente.getText()) || !"".equals(txtDireccionCliente.getText()) || !"".equals(txtCorreoCliente.getText()) || !"".equals(txtTelefonoCliente.getText()) || !"".equals(txtTelefonoCliente2.getText())) {
-            cl.setNombre_cliente(txtNombreCliente.getText());
-            cl.setDocumento_cliente(Long.parseLong(txtDocumentoCliente.getText()));
-            cl.setDireccion_cliente(txtDireccionCliente.getText());
-            cl.setCorreo_cliente(txtCorreoCliente.getText());
-            cl.setTelefono_cliente(Long.parseLong(txtTelefonoCliente.getText()));
-            cl.setTelefono2_cliente(Long.parseLong(txtTelefonoCliente2.getText()));
-            cl.setUsuario(FrmPrincipal.idUsuario.getText());
+            cl.setNombre(txtNombreCliente.getText());
+            cl.setDocumento(Long.parseLong(txtDocumentoCliente.getText()));
+            cl.setDireccion(txtDireccionCliente.getText());
+            cl.setCorreo(txtCorreoCliente.getText());
+            cl.setTelefono(Long.parseLong(txtTelefonoCliente.getText()));
+            cl.setTelefono2(Long.parseLong(txtTelefonoCliente2.getText()));
+            cl.setTrabajador(FrmPrincipal.idUsuario.getText());
             clDao.RegistrarCliente(cl);
             clDao.RegistrarHistorialCliente(cl);
 
@@ -85,12 +85,12 @@ public class FrmClientes extends javax.swing.JFrame {
 
         for (int i = 0; i < ListarCl.size(); i++) {
             ob[0] = ListarCl.get(i).getIdclientes();
-            ob[1] = ListarCl.get(i).getNombre_cliente();
-            ob[2] = ListarCl.get(i).getDocumento_cliente();
-            ob[3] = ListarCl.get(i).getDireccion_cliente();
-            ob[4] = ListarCl.get(i).getCorreo_cliente();
-            ob[5] = ListarCl.get(i).getTelefono_cliente();
-            ob[6] = ListarCl.get(i).getTelefono2_cliente();
+            ob[1] = ListarCl.get(i).getNombre();
+            ob[2] = ListarCl.get(i).getDocumento();
+            ob[3] = ListarCl.get(i).getDireccion();
+            ob[4] = ListarCl.get(i).getCorreo();
+            ob[5] = ListarCl.get(i).getTelefono();
+            ob[6] = ListarCl.get(i).getTelefono2();
             modelo.addRow(ob);
         }
         tbClientes.setModel(modelo);
@@ -138,8 +138,6 @@ public class FrmClientes extends javax.swing.JFrame {
         btnEliminarCliente = new javax.swing.JButton();
         txtIdCliente = new javax.swing.JTextField();
         Validar_ActualizarCliente = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbClientes = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -214,10 +212,6 @@ public class FrmClientes extends javax.swing.JFrame {
 
         Validar_ActualizarCliente.setText("0");
 
-        jButton1.setText("jButton1");
-
-        jLabel8.setText("jLabel8");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -238,11 +232,7 @@ public class FrmClientes extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Validar_ActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8))
+                        .addComponent(Validar_ActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -292,9 +282,7 @@ public class FrmClientes extends javax.swing.JFrame {
                     .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Validar_ActualizarCliente)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel8))
+                    .addComponent(Validar_ActualizarCliente))
                 .addContainerGap())
         );
 
@@ -443,7 +431,6 @@ public class FrmClientes extends javax.swing.JFrame {
     public static javax.swing.JLabel Validar_ActualizarCliente;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnRegistrarCliente;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -451,7 +438,6 @@ public class FrmClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

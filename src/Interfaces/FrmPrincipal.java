@@ -31,21 +31,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        Boton_CerrarSesion = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        Boton_CerrarSesion = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Nombre_Usuario = new javax.swing.JLabel();
+        Username = new javax.swing.JLabel();
+        idUsuario = new javax.swing.JLabel();
+        Rol = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         Validar_Ventas_Bar = new javax.swing.JLabel();
-        Validar_Ventas_Por_Mayor = new javax.swing.JLabel();
         Validar_Gestionar_Clientes = new javax.swing.JLabel();
+        Validar_Ventas_Por_Mayor = new javax.swing.JLabel();
         Validar_Gestionar_Proveedores = new javax.swing.JLabel();
         Validar_Gestionar_Compras = new javax.swing.JLabel();
         Validar_Gestionar_Productos = new javax.swing.JLabel();
         Validar_Gestionar_Categorias = new javax.swing.JLabel();
         Validar_Inventario = new javax.swing.JLabel();
-        idUsuario = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        Validar_Gestionar_Usuarios = new javax.swing.JLabel();
+        Validar_Gestionar_Mesas = new javax.swing.JLabel();
+        Validar_Gestionar_Negocio = new javax.swing.JLabel();
+        MenuBar = new javax.swing.JMenuBar();
         Menu_Ventas = new javax.swing.JMenu();
         Menu_VentasBar = new javax.swing.JMenuItem();
         Menu_VentasPorMayor = new javax.swing.JMenuItem();
@@ -58,13 +65,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Menu_Gestionar_Compras = new javax.swing.JMenuItem();
         Menu_Productos = new javax.swing.JMenu();
         Menu_Gestionar_Productos = new javax.swing.JMenuItem();
-        Menu_Inventario = new javax.swing.JMenu();
+        Menu_Reportes = new javax.swing.JMenu();
         Menu_Reporte_Inventario = new javax.swing.JMenuItem();
         Menu_Reporte_Ventas_Bar = new javax.swing.JMenuItem();
         Menu_Reporte_Ventar_Por_Mayor = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        Menu_Gestion = new javax.swing.JMenu();
+        Menu_Registro_Usuarios = new javax.swing.JMenuItem();
+        Menu_Mesas = new javax.swing.JMenuItem();
+        Menu_Datos_Negocio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Panel Principal");
@@ -81,6 +89,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(1366, 729));
         jPanel2.setPreferredSize(new java.awt.Dimension(1366, 729));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wallpaperflare.com_wallpaper.jpg"))); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         Boton_CerrarSesion.setBackground(new java.awt.Color(229, 57, 53));
         Boton_CerrarSesion.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
         Boton_CerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,16 +108,62 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avatar.png"))); // NOI18N
         jLabel1.setText("Usuario:");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wallpaperflare.com_wallpaper.jpg"))); // NOI18N
-
         Nombre_Usuario.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Nombre_Usuario.setText("Name User");
 
+        Username.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        Username.setText("Username");
+
+        idUsuario.setText("0");
+
+        Rol.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        Rol.setText("Rol");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Boton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Nombre_Usuario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(idUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(69, 69, 69)
+                                .addComponent(Rol, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)))))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(Nombre_Usuario)
+                    .addComponent(idUsuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Username)
+                    .addComponent(Rol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Boton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         Validar_Ventas_Bar.setText("0");
 
-        Validar_Ventas_Por_Mayor.setText("0");
-
         Validar_Gestionar_Clientes.setText("0");
+
+        Validar_Ventas_Por_Mayor.setText("0");
 
         Validar_Gestionar_Proveedores.setText("0");
 
@@ -117,7 +175,68 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         Validar_Inventario.setText("0");
 
-        idUsuario.setText("0");
+        Validar_Gestionar_Usuarios.setText("0");
+
+        Validar_Gestionar_Mesas.setText("0");
+
+        Validar_Gestionar_Negocio.setText("0");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Validar_Ventas_Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Validar_Gestionar_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Validar_Ventas_Por_Mayor, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Validar_Gestionar_Proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Validar_Gestionar_Compras, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Validar_Gestionar_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Validar_Gestionar_Categorias, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Validar_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Validar_Gestionar_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Validar_Gestionar_Negocio, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Validar_Gestionar_Mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Validar_Gestionar_Proveedores)
+                            .addComponent(Validar_Gestionar_Compras)
+                            .addComponent(Validar_Gestionar_Productos)
+                            .addComponent(Validar_Inventario)
+                            .addComponent(Validar_Gestionar_Usuarios))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Validar_Gestionar_Categorias)
+                            .addComponent(Validar_Gestionar_Mesas))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Validar_Gestionar_Negocio))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Validar_Ventas_Bar)
+                            .addComponent(Validar_Gestionar_Clientes))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Validar_Ventas_Por_Mayor)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -126,70 +245,32 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator1)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Boton_CerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Nombre_Usuario)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1008, Short.MAX_VALUE)
-                        .addComponent(Validar_Ventas_Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Validar_Ventas_Por_Mayor, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Validar_Gestionar_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Validar_Gestionar_Proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Validar_Gestionar_Compras, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Validar_Gestionar_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Validar_Gestionar_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Validar_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(idUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 826, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(Nombre_Usuario)
-                    .addComponent(idUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Boton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Validar_Ventas_Bar)
-                    .addComponent(Validar_Ventas_Por_Mayor)
-                    .addComponent(Validar_Gestionar_Clientes)
-                    .addComponent(Validar_Gestionar_Proveedores)
-                    .addComponent(Validar_Gestionar_Compras)
-                    .addComponent(Validar_Gestionar_Productos)
-                    .addComponent(Validar_Gestionar_Categorias)
-                    .addComponent(Validar_Inventario))
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
-        jMenuBar1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        MenuBar.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
 
         Menu_Ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/punto-de-venta.png"))); // NOI18N
         Menu_Ventas.setText("Ventas");
 
-        Menu_VentasBar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_VentasBar.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_VentasBar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/barra-de-bar.png"))); // NOI18N
         Menu_VentasBar.setText("Ventas Bar");
         Menu_VentasBar.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +280,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         Menu_Ventas.add(Menu_VentasBar);
 
-        Menu_VentasPorMayor.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_VentasPorMayor.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_VentasPorMayor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/botella-de-vino.png"))); // NOI18N
         Menu_VentasPorMayor.setText("Ventas Por Mayor");
         Menu_VentasPorMayor.addActionListener(new java.awt.event.ActionListener() {
@@ -209,12 +290,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         Menu_Ventas.add(Menu_VentasPorMayor);
 
-        jMenuBar1.add(Menu_Ventas);
+        MenuBar.add(Menu_Ventas);
 
         Menu_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/apreton-de-manos.png"))); // NOI18N
         Menu_Clientes.setText("Clientes");
 
-        Menu_Gestionar_Clientes.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Gestionar_Clientes.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_Gestionar_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gestion-de-la-relacion-con-el-cliente.png"))); // NOI18N
         Menu_Gestionar_Clientes.setText("Gestionar Clientes");
         Menu_Gestionar_Clientes.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +305,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         Menu_Clientes.add(Menu_Gestionar_Clientes);
 
+        jMenuItem1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jMenuItem1.setText("Historial");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,12 +314,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         Menu_Clientes.add(jMenuItem1);
 
-        jMenuBar1.add(Menu_Clientes);
+        MenuBar.add(Menu_Clientes);
 
         Menu_Proveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/proveedores.png"))); // NOI18N
         Menu_Proveedores.setText("Proveedores");
 
-        Menu_Gestionar_Proveedores.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Gestionar_Proveedores.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_Gestionar_Proveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cadena-de-suministro.png"))); // NOI18N
         Menu_Gestionar_Proveedores.setText("Gestionar Proveedores");
         Menu_Gestionar_Proveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -247,12 +329,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         Menu_Proveedores.add(Menu_Gestionar_Proveedores);
 
-        jMenuBar1.add(Menu_Proveedores);
+        MenuBar.add(Menu_Proveedores);
 
         Menu_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/metodo-de-pago.png"))); // NOI18N
         Menu_Compras.setText("Compras");
 
-        Menu_Gestionar_Compras.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Gestionar_Compras.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_Gestionar_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pedido.png"))); // NOI18N
         Menu_Gestionar_Compras.setText("Gestionar Compras");
         Menu_Gestionar_Compras.addActionListener(new java.awt.event.ActionListener() {
@@ -262,12 +344,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         Menu_Compras.add(Menu_Gestionar_Compras);
 
-        jMenuBar1.add(Menu_Compras);
+        MenuBar.add(Menu_Compras);
 
         Menu_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/espiritu2.png"))); // NOI18N
         Menu_Productos.setText("Productos");
 
-        Menu_Gestionar_Productos.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Gestionar_Productos.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_Gestionar_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/espiritu2.png"))); // NOI18N
         Menu_Gestionar_Productos.setText("Gestionar Productos");
         Menu_Gestionar_Productos.addActionListener(new java.awt.event.ActionListener() {
@@ -277,12 +359,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         Menu_Productos.add(Menu_Gestionar_Productos);
 
-        jMenuBar1.add(Menu_Productos);
+        MenuBar.add(Menu_Productos);
 
-        Menu_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
-        Menu_Inventario.setText("Reportes");
+        Menu_Reportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
+        Menu_Reportes.setText("Reportes");
 
-        Menu_Reporte_Inventario.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Reporte_Inventario.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_Reporte_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
         Menu_Reporte_Inventario.setText("Inventario");
         Menu_Reporte_Inventario.addActionListener(new java.awt.event.ActionListener() {
@@ -290,31 +372,42 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 Menu_Reporte_InventarioActionPerformed(evt);
             }
         });
-        Menu_Inventario.add(Menu_Reporte_Inventario);
+        Menu_Reportes.add(Menu_Reporte_Inventario);
 
-        Menu_Reporte_Ventas_Bar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Reporte_Ventas_Bar.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_Reporte_Ventas_Bar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
         Menu_Reporte_Ventas_Bar.setText("Ventas Bar");
-        Menu_Inventario.add(Menu_Reporte_Ventas_Bar);
+        Menu_Reportes.add(Menu_Reporte_Ventas_Bar);
 
-        Menu_Reporte_Ventar_Por_Mayor.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        Menu_Reporte_Ventar_Por_Mayor.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Menu_Reporte_Ventar_Por_Mayor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/informe-de-venta.png"))); // NOI18N
         Menu_Reporte_Ventar_Por_Mayor.setText("Ventas Por Mayor");
-        Menu_Inventario.add(Menu_Reporte_Ventar_Por_Mayor);
+        Menu_Reportes.add(Menu_Reporte_Ventar_Por_Mayor);
 
-        jMenuBar1.add(Menu_Inventario);
+        MenuBar.add(Menu_Reportes);
 
-        jMenu1.setText("Gestion");
+        Menu_Gestion.setText("Gestion");
 
-        jMenuItem2.setText("Usuarios");
-        jMenu1.add(jMenuItem2);
+        Menu_Registro_Usuarios.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        Menu_Registro_Usuarios.setText("Usuarios");
+        Menu_Registro_Usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_Registro_UsuariosActionPerformed(evt);
+            }
+        });
+        Menu_Gestion.add(Menu_Registro_Usuarios);
 
-        jMenuItem3.setText("Datos Negocio");
-        jMenu1.add(jMenuItem3);
+        Menu_Mesas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        Menu_Mesas.setText("Mesas");
+        Menu_Gestion.add(Menu_Mesas);
 
-        jMenuBar1.add(jMenu1);
+        Menu_Datos_Negocio.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        Menu_Datos_Negocio.setText("Datos Negocio");
+        Menu_Gestion.add(Menu_Datos_Negocio);
 
-        setJMenuBar(jMenuBar1);
+        MenuBar.add(Menu_Gestion);
+
+        setJMenuBar(MenuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -406,6 +499,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
         hc.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void Menu_Registro_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Registro_UsuariosActionPerformed
+        if (Validar_Gestionar_Usuarios.getText() == "0") {
+            FrmRegistroUsuarios regusu = new FrmRegistroUsuarios();
+            regusu.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "La ventana USUARIOS ya se encuentra abierta");
+        }
+    }//GEN-LAST:event_Menu_Registro_UsuariosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -431,39 +533,47 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_CerrarSesion;
-    private javax.swing.JMenu Menu_Clientes;
-    private javax.swing.JMenu Menu_Compras;
-    private javax.swing.JMenuItem Menu_Gestionar_Clientes;
-    private javax.swing.JMenuItem Menu_Gestionar_Compras;
-    private javax.swing.JMenuItem Menu_Gestionar_Productos;
-    private javax.swing.JMenuItem Menu_Gestionar_Proveedores;
-    private javax.swing.JMenu Menu_Inventario;
-    private javax.swing.JMenu Menu_Productos;
-    private javax.swing.JMenu Menu_Proveedores;
-    private javax.swing.JMenuItem Menu_Reporte_Inventario;
-    private javax.swing.JMenuItem Menu_Reporte_Ventar_Por_Mayor;
-    private javax.swing.JMenuItem Menu_Reporte_Ventas_Bar;
-    private javax.swing.JMenu Menu_Ventas;
-    private javax.swing.JMenuItem Menu_VentasBar;
-    private javax.swing.JMenuItem Menu_VentasPorMayor;
+    private javax.swing.JMenuBar MenuBar;
+    public static javax.swing.JMenu Menu_Clientes;
+    public static javax.swing.JMenu Menu_Compras;
+    public static javax.swing.JMenuItem Menu_Datos_Negocio;
+    public static javax.swing.JMenu Menu_Gestion;
+    public static javax.swing.JMenuItem Menu_Gestionar_Clientes;
+    public static javax.swing.JMenuItem Menu_Gestionar_Compras;
+    public static javax.swing.JMenuItem Menu_Gestionar_Productos;
+    public static javax.swing.JMenuItem Menu_Gestionar_Proveedores;
+    public static javax.swing.JMenuItem Menu_Mesas;
+    public static javax.swing.JMenu Menu_Productos;
+    public static javax.swing.JMenu Menu_Proveedores;
+    public static javax.swing.JMenuItem Menu_Registro_Usuarios;
+    public static javax.swing.JMenuItem Menu_Reporte_Inventario;
+    public static javax.swing.JMenuItem Menu_Reporte_Ventar_Por_Mayor;
+    public static javax.swing.JMenuItem Menu_Reporte_Ventas_Bar;
+    public static javax.swing.JMenu Menu_Reportes;
+    public static javax.swing.JMenu Menu_Ventas;
+    public static javax.swing.JMenuItem Menu_VentasBar;
+    public static javax.swing.JMenuItem Menu_VentasPorMayor;
     public static javax.swing.JLabel Nombre_Usuario;
+    public static javax.swing.JLabel Rol;
+    public static javax.swing.JLabel Username;
     public static javax.swing.JLabel Validar_Gestionar_Categorias;
     public static javax.swing.JLabel Validar_Gestionar_Clientes;
     public static javax.swing.JLabel Validar_Gestionar_Compras;
+    public static javax.swing.JLabel Validar_Gestionar_Mesas;
+    public static javax.swing.JLabel Validar_Gestionar_Negocio;
     public static javax.swing.JLabel Validar_Gestionar_Productos;
     public static javax.swing.JLabel Validar_Gestionar_Proveedores;
+    public static javax.swing.JLabel Validar_Gestionar_Usuarios;
     public static javax.swing.JLabel Validar_Inventario;
     public static javax.swing.JLabel Validar_Ventas_Bar;
     public static javax.swing.JLabel Validar_Ventas_Por_Mayor;
     public static javax.swing.JLabel idUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

@@ -33,12 +33,12 @@ public class FrmHistorialCliente extends javax.swing.JFrame {
 
         for (int i = 0; i < ListarCl.size(); i++) {
             ob[0] = ListarCl.get(i).getIdclientes();
-            ob[1] = ListarCl.get(i).getNombre_cliente();
-            ob[2] = ListarCl.get(i).getDocumento_cliente();
-            ob[3] = ListarCl.get(i).getDireccion_cliente();
-            ob[4] = ListarCl.get(i).getCorreo_cliente();
-            ob[5] = ListarCl.get(i).getTelefono_cliente();
-            ob[6] = ListarCl.get(i).getTelefono2_cliente();
+            ob[1] = ListarCl.get(i).getNombre();
+            ob[2] = ListarCl.get(i).getDocumento();
+            ob[3] = ListarCl.get(i).getDireccion();
+            ob[4] = ListarCl.get(i).getCorreo();
+            ob[5] = ListarCl.get(i).getTelefono();
+            ob[6] = ListarCl.get(i).getTelefono2();
             modelo.addRow(ob);
         }
         tbClientes.setModel(modelo);

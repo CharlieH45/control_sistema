@@ -22,13 +22,13 @@ public class ClientesDAO {
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setString(1, cl.getNombre_cliente());
-            ps.setLong(2, cl.getDocumento_cliente());
-            ps.setString(3, cl.getDireccion_cliente());
-            ps.setString(4, cl.getCorreo_cliente());
-            ps.setLong(5, cl.getTelefono_cliente());
-            ps.setLong(6, cl.getTelefono2_cliente());
-            ps.setString(7, cl.getUsuario());
+            ps.setString(1, cl.getNombre());
+            ps.setLong(2, cl.getDocumento());
+            ps.setString(3, cl.getDireccion());
+            ps.setString(4, cl.getCorreo());
+            ps.setLong(5, cl.getTelefono());
+            ps.setLong(6, cl.getTelefono2());
+            ps.setString(7, cl.getTrabajador());
             ps.execute();
 
             return true;
@@ -51,13 +51,13 @@ public class ClientesDAO {
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setString(1, cl.getNombre_cliente());
-            ps.setLong(2, cl.getDocumento_cliente());
-            ps.setString(3, cl.getDireccion_cliente());
-            ps.setString(4, cl.getCorreo_cliente());
-            ps.setLong(5, cl.getTelefono_cliente());
-            ps.setLong(6, cl.getTelefono2_cliente());
-            ps.setString(7, cl.getUsuario());
+            ps.setString(1, cl.getNombre());
+            ps.setLong(2, cl.getDocumento());
+            ps.setString(3, cl.getDireccion());
+            ps.setString(4, cl.getCorreo());
+            ps.setLong(5, cl.getTelefono());
+            ps.setLong(6, cl.getTelefono2());
+            ps.setString(7, cl.getTrabajador());
             ps.execute();
 
             return true;
@@ -87,13 +87,13 @@ public class ClientesDAO {
             while (rs.next()) {
                 Clientes cl = new Clientes();
                 cl.setIdclientes(rs.getInt("idclientes"));
-                cl.setNombre_cliente(rs.getString("nombre_cliente"));
-                cl.setDocumento_cliente(rs.getLong("documento_cliente"));
-                cl.setDireccion_cliente(rs.getString("direccion_cliente"));
-                cl.setCorreo_cliente(rs.getString("correo_cliente"));
-                cl.setTelefono_cliente(rs.getLong("telefono_cliente"));
-                cl.setTelefono2_cliente(rs.getLong("telefono2_cliente"));
-                cl.setUsuario(rs.getString("usuario"));
+                cl.setNombre(rs.getString("nombre"));
+                cl.setDocumento(rs.getLong("documento"));
+                cl.setDireccion(rs.getString("direccion"));
+                cl.setCorreo(rs.getString("correo"));
+                cl.setTelefono(rs.getLong("telefono"));
+                cl.setTelefono2(rs.getLong("telefono2"));
+                cl.setTrabajador(rs.getString("trabajadores_idtrabajadores"));
                 listacl.add(cl);
             }
         } catch (SQLException e) {
@@ -113,13 +113,13 @@ public class ClientesDAO {
 
             while (rs.next()) {
                 Clientes cl = new Clientes();
-                cl.setNombre_cliente(rs.getString("nombre_cliente"));
-                cl.setDocumento_cliente(rs.getLong("documento_cliente"));
-                cl.setDireccion_cliente(rs.getString("direccion_cliente"));
-                cl.setCorreo_cliente(rs.getString("correo_cliente"));
-                cl.setTelefono_cliente(rs.getLong("telefono_cliente"));
-                cl.setTelefono2_cliente(rs.getLong("telefono2_cliente"));
-                cl.setUsuario(rs.getString("usuario"));
+                cl.setNombre(rs.getString("nombre_cliente"));
+                cl.setDocumento(rs.getLong("documento_cliente"));
+                cl.setDireccion(rs.getString("direccion_cliente"));
+                cl.setCorreo(rs.getString("correo_cliente"));
+                cl.setTelefono(rs.getLong("telefono_cliente"));
+                cl.setTelefono2(rs.getLong("telefono2_cliente"));
+                cl.setTrabajador(rs.getString("trabajadores_idtrabajadores"));
                 ListaCl.add(cl);
             }
         } catch (SQLException e) {
@@ -132,14 +132,14 @@ public class ClientesDAO {
         String sql = "UPDATE clientes SET nombre_cliente=?, documento_cliente=?, direccion_cliente=?, correo_cliente=?, telefono_cliente=?, telefono2_cliente=?, usuario=? WHERE idclientes=?";
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, cl.getNombre_cliente());
-            ps.setLong(2, cl.getDocumento_cliente());
-            ps.setString(3, cl.getDireccion_cliente());
-            ps.setString(4, cl.getCorreo_cliente());
-            ps.setLong(5, cl.getTelefono_cliente());
-            ps.setLong(6, cl.getTelefono2_cliente());
-            ps.setString(7, cl.getUsuario());
-            ps.setInt(7, cl.getIdclientes());
+            ps.setString(1, cl.getNombre());
+            ps.setLong(2, cl.getDocumento());
+            ps.setString(3, cl.getDireccion());
+            ps.setString(4, cl.getCorreo());
+            ps.setLong(5, cl.getTelefono());
+            ps.setLong(6, cl.getTelefono2());
+            ps.setString(7, cl.getTrabajador());
+            ps.setLong(7, cl.getIdclientes());
             return true;
         } catch (SQLException e) {
             System.out.println(e.toString());
